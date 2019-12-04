@@ -1,0 +1,59 @@
+<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
+    <div class="kt-header-mobile__logo">
+        <a href="javascript:void(0)">
+            <img alt="Logo" src="assets/media/logos/logo-6-sm.png" />
+        </a>
+    </div>
+    <div class="kt-header-mobile__toolbar">
+        <div class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left" id="kt_aside_mobile_toggler"><span></span></div>
+        <div class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></div>
+        <div class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></div>
+    </div>
+</div>
+
+<div class="kt-grid kt-grid--hor kt-grid--root">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
+        <app-side-nav></app-side-nav>
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+
+            <app-top-nav></app-top-nav>
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+                <div class="kt-subheader-search">
+                    <h3 class="kt-subheader-search__title">
+                        Search and Filters
+                    </h3>
+                    <form class="kt-form">
+                        <div class="kt-grid kt-grid--desktop kt-grid--ver-desktop col-lg-12">
+                            <div class="kt-grid__item kt-grid__item--middle">
+                                <div class="row kt-margin-r-10">
+                                    <div class="col-lg-12">
+                                        <div class="kt-input-icon kt-input-icon--pill kt-input-icon--right">
+                                            <input type="text" class="form-control form-control-pill" placeholder="Search Query">
+                                            <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-puzzle-piece"></i></span></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="kt-grid__item kt-grid__item--middle">
+                                <div class="kt-margin-top-20 kt--visible-tablet-and-mobile"></div>
+                                <button type="button" class="btn btn-pill btn-upper btn-bold btn-font-sm kt-subheader-search__submit-btn">Search</button>
+                                <span style="color: white; margin-left: 4px">Filters: </span>
+                                <a href="javascript:void(0)" class="kt-subheader-search__link kt-link">Local Listings</a>
+                                <a href="javascript:void(0)" class="kt-subheader-search__link kt-link">Nearby Listings</a>
+                                <a href="javascript:void(0)" class="kt-subheader-search__link kt-link">Area Listings</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+
+                    <router-outlet></router-outlet>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

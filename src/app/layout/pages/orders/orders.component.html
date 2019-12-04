@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-plain title-style-header">
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title col-md-6 float-left">order</h4>
+            </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th class="serial width-sm"> S.No. </th>
+                <th class="width-sm">
+                  <span>Name</span>
+                </th>
+                <th class="width-sm">
+                  <span>Category</span>
+                </th>
+                <th class="width-sm">Return </th>
+                <th class="width-sm">Shipping</th>
+                <th class="width-sm">Address</th>
+                <th class="width-sm">price</th>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let orders of myOrders;let i = index;">
+                  <!--| paginate: { itemsPerPage: params.limit, currentPage: paginate.page, totalItems: paginate.count };let i = index;-->
+                  <td>{{i + 1}}</td>
+                  <td>{{orders?.name}}</td>
+                  <td>{{orders?.category}}</td>
+                  <td>{{orders?.returnOption ? 'Available': 'Not-Available'}}</td>
+                  <td>{{orders?.shipping}}</td>
+                  <td>{{orders?.shippingAddress}}</td>
+                  <td>{{orders?.amount}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div *ngIf=" myOrders.length == 0" class="noRecord uk-padding-large uk-text-center">
+              <span uk-icon="icon: info; ratio: 2"></span>
+              <h4>No records found</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="pagination-controls" *ngIf="paginate.count > 10">
+    <div class="page-text float-left">
+      <span>Showing from {{(paginate.page -1)*params.limit + 1}} to
+        {{(paginate.page -1)*params.limit + myOrders.length}}</span>
+    </div>
+    <div class="pagination-li float-right">
+      <pagination-controls (pageChange)="pagination($event)"></pagination-controls>
+    </div>
+  </div> -->
+
+  <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title col-md-6 float-left">order purchased</h4>
+              </div>
+              
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th class="serial width-sm"> S.No. </th>
+                  <th class="width-sm">
+                    <span>Name</span>
+                  </th>
+                  <th class="width-sm">
+                    <span>Category</span>
+                  </th>
+                  <th class="width-sm">Return </th>
+                  <th class="width-sm">Shipping</th>
+                <th class="width-sm">Address</th>
+                <th class="width-sm">price</th>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let orders of myOrders;let i = index;">
+                    <!--| paginate: { itemsPerPage: params.limit, currentPage: paginate.page, totalItems: paginate.count };let i = index;-->
+                    <td>{{i + 1}}</td>
+                    <td>{{orders?.name}}</td>
+                    <td>{{orders?.category}}</td>
+                    <td>{{orders?.returnOption ? 'Available': 'Not-Available'}}</td>
+                    <td>{{orders?.shipping}}</td>
+                    <td>{{orders?.shippingAddress}}</td>
+                    <td>{{orders?.amount}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div *ngIf=" myOrders.length == 0" class="noRecord uk-padding-large uk-text-center">
+                <span uk-icon="icon: info; ratio: 2"></span>
+                <h4>No records found</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

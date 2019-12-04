@@ -1,0 +1,40 @@
+<div class="log-form uk-animation-fade">
+
+  <div class="head">
+      <h6>TGC User LOGIN</h6>
+      <p>Please login to continue.</p>
+  </div>
+
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+    <div class="form-group">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: user"></span>
+        <input (focus)="submitted = false" class="login-input" placeholder="Email" type="email" formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && userForm.email.errors }">
+      </div>
+      <div *ngIf="submitted && userForm.email.errors" class="log-error">
+        <div *ngIf="userForm.email.errors.required">Please enter email</div>
+        <div *ngIf="submitted && userForm.email.errors.pattern">Please enter a valid email.</div>
+      </div>
+    </div>
+
+    <div class="form-group mt-4 pt-3">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+        <input (focus)="submitted = false" class="login-input" placeholder="Password" type="password" formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && userForm.password.errors && !userForm.email.errors }">
+      </div>
+      <div *ngIf="submitted && userForm.password.errors && !userForm.email.errors" class="log-error">
+        <div *ngIf="submitted && userForm.password.errors.required">Please enter password</div>
+        <div *ngIf="submitted && userForm.password.errors.minlength"> Please Enter Valid Password</div>
+        <div *ngIf="submitted && userForm.password.errors.maxlength">Please Enter Valid Password</div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <button type="submit" class="uk-button login-btn">login</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,74 @@
+<div style="font-size: 25px;margin-top:10px ;">
+    G1
+  </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-lg-12" *ngFor="let post of postsData">
+                <h2 class="title">{{post.name}}</h2>
+                <div class="posts-image">
+                  <div class="row">
+                      <img class="main" [src]="post?.postImage?.main?.thumbnail" onError="src = './assets/images/image_placeholder.jpeg';">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3" *ngFor="let otherImage of post?.postImage?.other">
+                        <img class="child" [src]="otherImage?.thumbnail" onError="src = './assets/images/image_placeholder.jpeg';">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row">
+                        <span class="font-weight-bold">Description:</span>
+                        {{post?.desc}}
+                        
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-6">
+                      <div class="row">
+                        <span class="font-weight-bold">Category:</span>
+                        {{post?.category}}
+                      </div>
+                      <div class="row">
+                          <span class="font-weight-bold">Return:</span>
+                          {{post?.returnOption ? 'Available' : 'Not Available'}}
+                      </div>
+                      <div class="row">
+                          <span class="font-weight-bold">Shipping:</span>
+                          {{post?.shipping}}
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <button>Add To Cart</button>
+                  </div>
+                  <div class="col-lg-6">
+                      <button>send message</button>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <!-- <div class="pagination-controls" *ngIf="paginate.count > 10">
+              <div class="page-text float-left">
+                <span>Showing from {{(paginate.page -1)*params.limit + 1}} to
+                  {{(paginate.page -1)*params.limit +postData.length}}</span>
+              </div>
+              <div class="pagination-li float-right">
+                <pagination-controls (pageChange)="pagination($event)"></pagination-controls>
+              </div>
+            </div> -->
+            </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="card-body">
+            <app-group-member></app-group-member>
+            </div>
+            </div>
+          </div>
+          </div>
